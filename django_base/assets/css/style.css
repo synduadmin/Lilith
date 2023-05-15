@@ -1,0 +1,11 @@
+.completed {background-color: green}
+.pending {background-color: orange}
+
+#todo_list {list-style: none;}
+#todo_lists {list-style: none;}
+
+@media(min-width:768px) {
+    .news_input {width: 50%}
+    .completed {background-color: green}
+    .pending {background-color: orange}
+}

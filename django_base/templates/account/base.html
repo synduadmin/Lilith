@@ -1,0 +1,51 @@
+{% load django_bootstrap5 %}
+{% load static %}
+{% load sass_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="{%static 'img/favicon.ico'%}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{% sass_src 'css/styles.scss' %}" rel="stylesheet" type="text/css">
+    <link href="{% sass_src 'css/panels.scss' %}" rel="stylesheet" type="text/css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-268C1PX10W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-268C1PX10W');
+    </script>
+</head>
+<body>
+<!-- Main content -->
+<div class="container-fluid mt-3">
+  <div class="row">
+      <!-- Left column with form -->
+      <div id="form_column" class="col-lg-6">
+          {% block content %}
+          {% endblock %}
+      </div>
+      <!-- Right column with panel -->
+      <div id="panel_column" class="col-lg-6 d-none d-lg-block">
+        <section id="panel">
+        {% include 'panels/index.html' %}
+        </section>
+      </div>
+  </div>
+</div>
+<!-- Hide right column on mobile -->
+<script>
+  if (window.innerWidth < 992) {
+      document.querySelector('#panel_column').classList.remove('d-lg-block');
+      document.querySelector('#panel_column').classList.add('d-none');
+  }
+</script>
+</body>
+</html>

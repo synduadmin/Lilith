@@ -1,0 +1,69 @@
+
+
+
+
+<div id="header" class="row header">
+    <div id="profile_picture col-1">
+        <img class="main_profile_pic" src="{% static '/img/profile.png' alt='Lilith' %}"/>
+    </div>
+    <div class="main_profile_name col-1">
+        Lilith
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="col col-md-9 mb-3 mb-md-0">
+                <input type="text" id="search" class="form-control" autofocus  rows="1" placeholder="Search"/>
+        </div>
+        <div class="col col-md-3">
+                <button type="submit" id="search" class="btn btn-outline-secondary">Search</button>
+        </div>
+    </div>
+</div>
+
+<script>
+            document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const input = document.querySelector('#message');
+            const messages = document.querySelector('#messages');
+
+            form.addEventListener('submit', function(event) {
+                const uniqueId = 'msg';
+                const timestamp = new Date().getTime();
+                let messageId = `${uniqueId}-${timestamp}`;
+
+                event.preventDefault();
+                const message = input.value;
+                input.value = '';
+                messages.innerHTML += `
+                    <div id="message-${messageId}" class="message_card">
+                    <div class="message user_message p-2">
+                        <div class="you_profile">You:</div>
+                        <div class="message_body"> ${message}</div>
+                    </div>
+                    </div>`;
+                const csrfToken = document.querySelector('input[name=csrfmiddlewaretoken]').value;
+                fetch('', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: `message=${encodeURIComponent(message)}&csrfmiddlewaretoken=${csrfToken}`
+                }).then(response => response.json())
+                  .then(data => {
+                    let qSelector = `#message-${messageId}`;
+                      const message=document.querySelector(qSelector);
+                      console.log(message)
+                      message.innerHTML += `
+                        <div class="message bot_message p-2">
+                        <div class="bot_profile">Lilith:</div>
+                        <div class="bot_message_body row">
+                        ${data.response}
+                        </div>
+                        </div>`;
+                      messages.scrollTop = messages.scrollHeight;
+                  }).then(Prism.highlightAll())
+                  .catch(error => console.error(error));
+            });
+        });
+
+</script>

@@ -1,0 +1,14 @@
+<!-- templates/chatbot/chat.html -->
+{% load static %}
+
+{% block content %}
+  <div id="chat-container">
+    <div id="message-container"></div>
+    <form id="chat-form">
+      <input type="text" id="chat-input" autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}

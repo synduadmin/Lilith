@@ -1,0 +1,19 @@
+<!-- pages/templates/home.html -->
+{% load crispy_forms_tags %}
+{% load static %}
+{% load sass_tags %}
+
+{% block content %}
+
+    <div class="container-invite">
+        <div class="invite_to_connect">
+            If you would like to become involved in the Lilith project, please leave your contact information below.
+        </div>
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+        
+{% endblock %}

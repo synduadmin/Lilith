@@ -1,0 +1,16 @@
+#ignore pyc files
+global-exclude *.pyc
+
+./__pycache__/
+__pycache__/
+
+*.py[cod]
+
+# C extensions
+*.so
+
+**/.env
+base/.env
+.env
+media/*
+logs/*

@@ -1,0 +1,46 @@
+{% load static %}
+<header class="crown-container">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+        <div class="navbar-container container me-auto">
+
+            <a href="#" class="navbar-brand">
+                <img src="{% static '/img/syndu_logo.png' %}" alt="Syndu" class="Syndu" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="/blog/" class="nav-link">
+                            Blog
+                        </a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'account_logout' %}" class="nav_link">{{ user.name }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_logout' %}" class="nav-link">
+                            Log Out
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'account_login' %}" class="nav-link">
+                            Log In
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_signup' %}" class="nav-link">
+                            Sign Up
+                        </a>
+                    </li>
+
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

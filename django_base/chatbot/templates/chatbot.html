@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load sass_tags %}
+    {% load static %}
+
+    <title>Lilith</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{%static 'img/favicon.ico'%}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link href="{% sass_src 'styles.scss' %}" rel="stylesheet" type="text/css" >
+    <script src="{% static '/js/prism.js' %}"></script>
+    <link href="{% static '/css/prism.css' %}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-268C1PX10W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-268C1PX10W');
+    </script>
+
+</head>
+<body>
+    <div id="header">
+        <div id="profile">
+            <div id="profile_picture">
+                <img class="main_profile_pic" src="{% static '/img/profile.png'%}"  alt='Lilith'/>
+            </div>
+            <div class="main_profile_name">
+                Lilith
+            </div>
+        </div>
+        <div id="search">
+            <input type="text" id="search_box" placeholder="Search messages...">
+            <button type="submit" id="search_button">Search</button>
+        </div>
+        <div id="account">
+            <div class="account_dropdown">
+                <button class="account_button">Account</button>
+                <div class="account_dropdown_content">
+                    <a href="#">My Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="{% url 'account_logout' %}?next=/">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="chat" class="w-100">
+            <div id="messages" class=""></div>
+            <div id="input" >
+                <form class="w-100">
+                    {% csrf_token %}
+                    <div class="input_box d-flex">
+
+                        <div class="col-md-9 mb-3 col-sm-12">
+
+                        <textarea id="message" class="form-control" autofocus id="message" rows="3" placeholder="Type your message here..."></textarea>
+                        </div>
+                        <div class="col-md-3 mb-3 col-sm-12">
+                            <button type="submit" id="send" class="btn btn-primary mt-2">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/chatmessages.js' %}?v=1.0.2"></script>
+</body>
+</html>

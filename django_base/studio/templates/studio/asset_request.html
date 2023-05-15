@@ -1,0 +1,13 @@
+<!-- studio/templates/studio/asset_request.html -->
+{% extends "crown/base.html" %}
+{% load crispy_forms_tags %}  <!-- Update this line to load crispy_forms_tags -->
+{% block content %}
+<div class="container container-column scrollable-content">
+  <h2>Request an Asset</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}  <!-- Use the crispy template filter to render the form -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

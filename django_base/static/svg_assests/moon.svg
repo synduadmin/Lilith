@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="moon" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="40" fill="white" stroke="gray" stroke-width="2" />
+    <circle cx="60" cy="35" r="5" fill="lightgray" />
+    <circle cx="45" cy="50" r="3" fill="lightgray" />
+    <circle cx="75" cy="60" r="4" fill="darkgray" />
+  </symbol>

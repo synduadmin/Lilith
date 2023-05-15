@@ -1,0 +1,290 @@
+$primary:gold;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+/* Frontpage specification */
+/*.lazy-pixelated {
+    image-rendering: pixelated;
+  }
+*/
+body {background-color: $dark;}
+
+/* styles.css */
+body {
+  margin: 0;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.crown-container {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  max-height: 132px;
+}
+
+.navbar-container {
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.body-container {
+  margin-top: 132px;
+}
+
+.footer {background-color: #666666;}
+@media (max-width: 768px) {
+  .menu-buttons {
+    display: none;
+  }
+
+  // Modify this selector if you have a specific button to toggle the menu
+  .menu-toggle-button {
+    display: block;
+  }
+}
+
+.container-full-width {
+  //margin-top:150px;
+  width: 100%;
+}
+
+.container-column {
+  max-width: 600px !important;
+  margin: 150px auto;
+}
+.container-invite  {display:block ; 
+  position: relative;   
+  max-width: 600px !important;
+  padding:20px; 
+  margin: 0px auto; background-color:#fffafa; border: 1px solid #ccaaaa; border-radius:5px;}
+.container-invite .btn {width:100% !important;}
+#leads { background-color:orange; padding:40px;}
+.invite_to_connect {font-family: Cookie; font-size:2rem; color: black;  text-align:center; margin:20px auto; padding:0px; width:100%;}
+
+.thumbnail {display:inline-block;}
+.thumbnail-image {width:180px; height: auto; display: inline-block; vertical-align: top; margin:15px; border:1px solid #eee; }
+.container-column img {display:block ; position: relative; max-width: 100%;}
+
+.navbar-brand {height:60px; width:auto;}
+.navbar-brand img {height:60px; width:auto;}
+
+/* Header styles */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
+  box-shadow: 0 0 6px rgba(51, 51, 51, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+#profile {
+  display: flex;
+  align-items: center;
+}
+
+#profile_picture {
+  margin-right: 8px;
+}
+
+.main_profile_name {
+  font-weight: bold;
+  text-align:left;
+}
+
+/* Search box styles */
+#search {
+  display: flex;
+  align-items: center;
+  flex-grow: 0.5;
+  justify-content: center;}
+
+#search_box {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  margin-right: 8px;
+  flex-grow: 1;
+}
+
+#search_button {
+  padding: 8px 16px;
+  background-color: $primary;
+  color: #ffffff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+#search_button:hover {
+  background-color: darken($primary, 10%);
+}
+
+.asset-thumbnails {justify-content: center; text-align: center;}
+
+/* Account dropdown styles */
+.account_dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.account_button {
+  background-color: #ffffff;
+  color: $primary;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  cursor: pointer;
+}
+
+.account_button:hover {
+  background-color: #f5f5f5;
+}
+
+.account_dropdown_content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0 0 6px rgba(51, 51, 51, 0.1);
+  z-index: 1;
+}
+
+.account_dropdown_content a {
+  color: #000000;
+  padding: 8px;
+  text-decoration: none;
+  display: block;
+}
+
+.account_dropdown_content a:hover {
+  background-color: #f5f5f5;
+}
+
+.account_dropdown:hover .account_dropdown_content {
+  display: block;
+}
+
+#main {
+    display: flex;
+    align-items: stretch;
+    min-height: calc(100vh - 80px);
+    width: 100vw;
+    background-color: $light;
+    margin-top: 80px;
+  }
+
+#sidebar {
+  flex-basis: 20%;
+  padding: 20px;
+  background-color: rgb(240, 156, 0);
+}
+
+#chat {
+  flex-basis: 80%;
+  padding: 0px;
+  margin: auto;
+}
+
+#messages {
+  height: calc(100% - 50px);
+  overflow-y: scroll;
+}
+
+#sidebar .btn {
+  width: 100%;
+}
+
+#sidebar .list-group {
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+#todo_list {
+  list-style: none;
+}
+
+#profile_details {
+  display: block;
+  width: 100%;
+}
+#profile_picture {overflow:hidden; display:block; margin:10px 20px; width:40px; height:40px; border:2px solid rgb(193, 125, 0); border-radius:50%;}
+.main_profile_pic {display:block; width:40px; height:40px; }
+.main_profile_name { display:block; width:110px; height:auto; text-align:left; font-size:1.5rem; font-weight:700; color:$dark; margin:10px auto;}
+
+#messages {
+    margin-bottom: auto;
+    overflow-y: scroll;
+    height: calc(100% - 120px);
+    width: 100%;
+    margin:0;
+    padding:0px;
+}
+
+#input {
+    bottom: 0;
+    z-index: 10;
+    padding:10px;
+    background-color:white;
+    border-top:1px solid #ddd;
+  }
+  
+  .input_box {
+    margin: 0px auto;
+    padding:10px;
+    border-radius: 0px;
+    padding: 0 10px;
+    font-size: 1rem;
+    height:100px;
+    width:100%
+    
+}
+
+#send { vertical-align: middle; 
+        padding:10px;
+        height:75%; margin:25% 0px; width:100%}
+
+
+#message {
+    resize: none;
+    min-height: 100px;
+    font-size: 1rem;
+}
+.form-control, .form-control:focus {
+    border:none !important;
+    background-color:transparent;
+    box-shadow: none !important;
+    outline: none;
+}
+
+@media (max-width: 576px) {
+  #chat {
+    flex-basis: 100%;
+  }
+}
+
+.you_profile { font-size:16px; color:#888; display:block;}
+.bot_profile { font-size:16px; color:#888; display:block;}
+.user_message { background-color: $light;}
+.bot_message {background-color: #eee;}
+//.message_card:nth-child(odd) .bot_message .bot_message_body {background-color: #eee;flex-direction: row;}
+//.message_card:nth-child(even) .bot_message .bot_message_body {background-color: #eee;flex-direction: row-reverse;}
+.message_body { width:100%; margin: 0px auto;}
+.bot_message_body {width:100%; margin: 0px auto;}
+.message_text {display:flex; flex-direction:row; width:50%; margin: 0px auto;}
+.message_illustration {display:flex; max-width:50%; max-height:600px;overflow:hidden;}
+.message_illustration img {display:block;max-width:100%;}
+@import './bootstrap/scss/bootstrap';

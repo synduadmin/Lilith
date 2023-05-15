@@ -1,0 +1,121 @@
+{% load django_bootstrap5 %}
+{% load static %}
+{% load sass_tags %}
+
+<html>
+
+<head>
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <meta charset="utf-8" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="{%static 'img/favicon.ico'%}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Syndu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+
+    <!-- link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"-->
+    <!-- script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script-->
+
+    <!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"-->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link href="{% sass_src 'css/styles.scss' %}" rel="stylesheet" type="text/css">
+    <link href="{% sass_src 'css/panels.scss' %}" rel="stylesheet" type="text/css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-268C1PX10W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-268C1PX10W');
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+        <div class="container">
+
+            <a href="#" class="navbar-brand">
+                <img src="{% static '/img/syndu_logo.png' %}" alt="Syndu" class="Syndu" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="/blog/" class="nav-link">
+                            Blog
+                        </a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'account_logout' %}" class="nav_link">{{ user.name }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_logout' %}" class="nav-link">
+                            Log Out
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'account_login' %}" class="nav-link">
+                            Log In
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_signup' %}" class="nav-link">
+                            Sign Up
+                        </a>
+                    </li>
+
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="frontpage_main">
+        {% include 'panels/index.html' %}
+    </section>
+    <section id="lifelong_learning">
+        {% include 'panels/lifelong_learning.html' %}
+    </section>
+    <section id="educate_a_girl">
+        {% include 'panels/educate_a_girl_change_the_world.html' %}
+    </section>
+    <section id="leads">
+        {% include "leads/lead_form.html" %}
+    </section>
+    <section id="inspiration">
+        {% include "panels/inspiration.html" %}
+    </section>
+
+    <!-- Newsletter -->
+    <!--section class="bg-secondary text-light p-5">
+        <div class="container">
+            <div class="d-md-flex justify-content-between align-items-center">
+                <h3 class="mb-3 mb mb-0">
+                    Sign up for our newsletter
+                </h3>
+                <div class="input-group mb-3">
+                    <input id="news_input" type="text" class="form-control" placeholder="Recipient's Email"
+                        aria-label="Recipient's Email" aria-describedby="button" />
+                    <button class="btn btn-dark btn-lg" type="button" id="button">Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section-->
+    <footer class="footer py-3 bg-grey">
+        <p class="m-0 text-light text-center ">Copyright © Syndu Web LTD.</p>
+    </footer>
+</body>
+
+</html>

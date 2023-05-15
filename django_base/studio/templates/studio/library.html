@@ -1,0 +1,19 @@
+{% extends "crown/base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="container container-full-width scrollable-content">
+    <h2>Asset Library</h2>
+    <div class="asset-thumbnails">
+      {% for asset in assets %}
+        {% if asset.asset_type == 'image' %}
+          <div class="thumbnail">
+            <a href="{{ asset.file.url }}">
+              <img src="{{ asset.file.url }}" alt="{{ asset.prompt}}" class="thumbnail-image">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

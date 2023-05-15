@@ -1,0 +1,23 @@
+
+
+{% load django_bootstrap5 %}
+{% load static %}
+{% load sass_tags %}
+
+{% block content %}
+  <div class="container container-full-width py-5">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="img_holder">
+        <img src="https://sgp1.digitaloceanspaces.com/synduweb/media/assets/image/image_syndu_3990f61d_King_Solomon_and_his.png" class="img-fluid" alt="UN SDG Goal 4">
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <p class="text">
+          Lifelong learning is a cornerstone of sustainable development.
+        </p>
+        <a class="next_btn btn" href="https://sdgs.un.org/goals/goal4" class="btn btn-black text-orange mt-3">Learn More</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

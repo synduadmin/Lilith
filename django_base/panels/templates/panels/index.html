@@ -1,0 +1,45 @@
+
+{% load django_bootstrap5 %}
+{% load static %}
+{% load sass_tags %}
+
+{% block content %}
+<div id="main_scene">
+    <div class="title-container" >
+        <h1 class="main_title" >Lilith</h1>
+        <p class="main_subtitle" style="color: white;">A Lifelong Learning Companion For Young Ladies</p>
+    </div>
+
+    <div id="galaxy" class="galaxy" data-interval="0.1">
+        <img src="{% static '/img/background.jpg' %}" alt="lake and mountain">
+    </div>
+    <div id="mountain">
+        <img class="lazy-pixelated" src="{% static '/img/mountain.png' %}" alt="lake and mountain">
+    </div>
+    
+    <div id="moon" data-interval="0.2">
+        <img class="lazy-pixelated" src="{% static '/img/moon.png' %}"  alt="moon">
+    </div>
+    <div id="cloud1" data-interval="2">
+        <img class="lazy-pixelated" src="{% static '/img/c1.png' %}"  alt="cloud1" class="cloud_image">
+    </div>
+    <div id="cloud2" data-interval="1.7">
+        <img class="lazy-pixelated" src="{% static '/img/c2.png' %}"   alt="cloud2" class="cloud_image">
+    </div>
+    <div id="cloud3" data-interval="1.3">
+        <img class="lazy-pixelated" src="{% static '/img/c3.png' %}"  alt="cloud3" class="cloud_image">
+    </div>
+    <div id="cloud4" data-interval="1">
+        <img class="lazy-pixelated" src="{% static '/img/c4.png' %}"  alt="cloud4" class="cloud_image">
+    </div>
+    <div id="cloud5" data-interval="0.8">
+        <img class="lazy-pixelated" src="{% static '/img/c5.png' %}"  alt="cloud5" class="cloud_image">
+    </div>
+    <div id="cloud6" data-interval="0.6">
+        <img class="lazy-pixelated" src="{% static '/img/c6.png' %}"  alt="cloud6" class="cloud_image">
+    </div>
+
+
+</div>
+<script src="{% static '/js/homepage.js' %}"></script>
+{% endblock %}

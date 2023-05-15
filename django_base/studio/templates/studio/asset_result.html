@@ -1,0 +1,13 @@
+<!-- studio/templates/studio/asset_result.html -->
+{% extends 'crown/base.html' %}
+
+{% block content %}
+<div class="container container-column scrollable-content">
+  <h2>Asset Result</h2>
+  <p>Asset Type: {{ asset.asset_type }}</p>
+  <p>Prompt: {{ asset.prompt }}</p>
+  <p>Requested by: {{ asset.user.username }}</p>
+  <p>Asset URL: {{ asset.file.name }}</p>
+  <img src="{{ asset.file.url }}" alt="{{ asset.prompt }}"/>
+</div>
+{% endblock %}
